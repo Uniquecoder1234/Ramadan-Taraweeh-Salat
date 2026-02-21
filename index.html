@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>তারাবীহ: ২০ রাকাত বনাম ৮ রাকাত | পূর্ণ দলিল বিশ্লেষণ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Bengali:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D08A;
+    --gold-dark: #8B6914;
+    --emerald: #1A4A3C;
+    --emerald-light: #2D6B58;
+    --emerald-dark: #0D2E24;
+    --cream: #F5EDD8;
+    --cream-dark: #E8D9B8;
+    --text-dark: #1C1008;
+    --text-mid: #3D2B0E;
+    --red-accent: #8B1A1A;
+    --blue-accent: #1A3A5C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--emerald-dark);
+    color: var(--cream);
+    font-family: 'Noto Serif Bengali', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ========== GEOMETRIC BACKGROUND ========== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(45,107,88,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(13,46,36,0.9) 0%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Islamic geometric pattern overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.3' opacity='0.15'%3E%3Cpolygon points='40,5 55,20 70,20 70,35 55,35 40,50 25,35 10,35 10,20 25,20'/%3E%3Crect x='15' y='15' width='50' height='50' transform='rotate(45,40,40)'/%3E%3Ccircle cx='40' cy='40' r='25'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* ========== HEADER ========== */
+  header {
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+  }
+
+  .bismillah {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+    text-shadow: 0 0 40px rgba(201,168,76,0.4);
+    animation: fadeInDown 1s ease;
+  }
+
+  .header-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .ornament-line {
+    height: 1px;
+    width: 120px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .ornament-diamond {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 12px;
+    animation: fadeInDown 1s ease 0.2s both;
+  }
+
+  h1 span { color: var(--gold); }
+
+  .subtitle {
+    font-size: 1rem;
+    color: var(--cream-dark);
+    opacity: 0.8;
+    animation: fadeInDown 1s ease 0.4s both;
+  }
+
+  /* ========== TABS ========== */
+  .tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 40px 0 32px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.5s both;
+  }
+
+  .tab-btn {
+    padding: 12px 28px;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .tab-btn:hover, .tab-btn.active {
+    background: var(--gold);
+    color: var(--emerald-dark);
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(201,168,76,0.4);
+  }
+
+  /* ========== SECTIONS ========== */
+  .section {
+    display: none;
+    animation: fadeInUp 0.5s ease;
+  }
+  .section.active { display: block; }
+
+  /* ========== CARD ========== */
+  .card {
+    background: linear-gradient(135deg, rgba(13,46,36,0.95) 0%, rgba(26,74,60,0.8) 100%);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+  }
+
+  .card:hover {
+    transform: translateX(4px);
+    box-shadow: -4px 0 20px rgba(201,168,76,0.2), 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .card.blue::before { background: linear-gradient(180deg, #4A90D9, #1A3A5C); }
+  .card.red::before { background: linear-gradient(180deg, #D9534A, #8B1A1A); }
+
+  .card-header {
+    padding: 20px 24px 16px 28px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .card-num {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    color: var(--emerald-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .card-num.blue { background: #4A90D9; color: white; }
+  .card-num.red { background: #D9534A; color: white; }
+
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .card-title.blue { color: #7AB8F5; }
+  .card-title.red { color: #F5A07A; }
+
+  .card-body { padding: 20px 24px 20px 28px; }
+
+  /* ========== ARABIC TEXT ========== */
+  .arabic-text {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    line-height: 2.2;
+    text-align: right;
+    direction: rtl;
+    color: var(--gold-light);
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-style: italic;
+  }
+
+  .translation {
+    background: rgba(0,0,0,0.2);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--cream);
+    margin: 8px 0;
+    font-style: italic;
+  }
+
+  .translation.blue { border-left-color: #4A90D9; }
+  .translation.red { border-left-color: #D9534A; }
+
+  .reference {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    font-size: 0.82rem;
+    padding: 4px 12px;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .reference.blue { background: rgba(74,144,217,0.15); border-color: rgba(74,144,217,0.3); color: #7AB8F5; }
+
+  .note {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    color: var(--cream-dark);
+    margin-top: 10px;
+  }
+
+  .note.warning { border-color: rgba(255,180,0,0.4); background: rgba(255,180,0,0.08); }
+  .note::before { content: '⚠️ '; }
+  .note.info::before { content: '📌 '; }
+
+  /* ========== SECTION TITLE ========== */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0 24px;
+  }
+
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: var(--gold);
+  }
+
+  .section-title .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  /* ========== IMAM TABLE ========== */
+  .imam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .imam-card {
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .imam-card:hover {
+    background: rgba(201,168,76,0.18);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .imam-name { font-size: 1rem; font-weight: 700; color: var(--gold-light); margin-bottom: 4px; }
+  .imam-opinion { font-size: 0.88rem; color: var(--cream-dark); }
+  .imam-icon { font-size: 1.8rem; margin-bottom: 8px; }
+
+  /* ========== COMPARISON TABLE ========== */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.92rem;
+  }
+
+  .compare-table th {
+    background: rgba(201,168,76,0.2);
+    color: var(--gold);
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .compare-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    vertical-align: top;
+    line-height: 1.6;
+    color: var(--cream);
+  }
+
+  .compare-table tr:nth-child(even) td { background: rgba(201,168,76,0.04); }
+  .compare-table tr:hover td { background: rgba(201,168,76,0.08); }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .badge.green { background: rgba(46,204,113,0.2); color: #2ECC71; border: 1px solid rgba(46,204,113,0.4); }
+  .badge.red { background: rgba(217,83,74,0.2); color: #E74C3C; border: 1px solid rgba(217,83,74,0.4); }
+  .badge.blue { background: rgba(74,144,217,0.2); color: #4A90D9; border: 1px solid rgba(74,144,217,0.4); }
+
+  /* ========== CONCLUSION BOX ========== */
+  .conclusion {
+    background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+    border: 2px solid var(--gold);
+    padding: 32px;
+    margin: 40px 0;
+    position: relative;
+    text-align: center;
+  }
+
+  .conclusion::before, .conclusion::after {
+    content: '❖';
+    position: absolute;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.5;
+  }
+
+  .conclusion::before { top: 12px; left: 16px; }
+  .conclusion::after { bottom: 12px; right: 16px; }
+
+  .conclusion h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .conclusion p { font-size: 1rem; line-height: 1.9; color: var(--cream); }
+
+  /* ========== PROGRESS / RAKAAT VISUAL ========== */
+  .rakaat-visual {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+    align-items: center;
+  }
+
+  .rakaat-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: transform 0.2s;
+    cursor: default;
+  }
+
+  .rakaat-dot:hover { transform: scale(1.2); }
+  .rakaat-dot.taraweeh { background: var(--gold); color: var(--emerald-dark); }
+  .rakaat-dot.witr { background: #4A90D9; color: white; }
+  .rakaat-dot.label { background: transparent; color: var(--cream-dark); font-size: 0.75rem; width: auto; border-radius: 0; }
+
+  /* ========== FLOATING PROGRESS ========== */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--emerald-light), var(--gold), var(--emerald-light));
+    z-index: 1000;
+    transition: width 0.1s;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    margin-top: 60px;
+    color: var(--cream-dark);
+    opacity: 0.6;
+    font-size: 0.85rem;
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(201,168,76,0.3); }
+    50% { text-shadow: 0 0 40px rgba(201,168,76,0.7), 0 0 80px rgba(201,168,76,0.3); }
+  }
+
+  .bismillah { animation: fadeInDown 1s ease, glow 3s ease-in-out infinite; }
+
+  /* ========== SCROLL REVEAL ========== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 600px) {
+    .imam-grid { grid-template-columns: 1fr 1fr; }
+    .compare-table { font-size: 0.8rem; }
+    .compare-table th, .compare-table td { padding: 8px 10px; }
+    .card-body { padding: 16px 16px 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+    <div class="header-ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+    <h1>তারাবীহ: <span>২০ রাকাত</span> বনাম <span>৮ রাকাত</span></h1>
+    <p class="subtitle">কুরআন ও হাদীসের আলোকে পূর্ণ দলিল বিশ্লেষণ</p>
+  </div>
+</header>
+
+<!-- TABS -->
+<div class="tabs-wrapper">
+  <button class="tab-btn active" onclick="showTab('intro')">ভূমিকা</button>
+  <button class="tab-btn" onclick="showTab('twenty')">২০ রাকাতের দলিল</button>
+  <button class="tab-btn" onclick="showTab('eight')">৮ রাকাতের দলিল</button>
+  <button class="tab-btn" onclick="showTab('analysis')">বিশ্লেষণ ও জবাব</button>
+  <button class="tab-btn" onclick="showTab('conclusion')">সিদ্ধান্ত</button>
+</div>
+
+<div class="container">
+
+  <!-- ======= INTRO ======= -->
+  <div class="section active" id="intro">
+
+    <div class="section-title reveal">
+      <h2>বিষয়টি বুঝি</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-header">
+        <div class="card-num">📖</div>
+        <div class="card-title">তারাবীহ কী?</div>
+      </div>
+      <div class="card-body">
+        <p style="line-height:1.9">তারাবীহ (تَرَاوِيح) শব্দটি "তারভীহা" থেকে এসেছে — অর্থ "বিশ্রাম"। রমজান মাসের রাতে ইশার নামাজের পর পড়া হয়। প্রতি চার রাকাতের পর একটু বিশ্রাম নেওয়া হয় বলে এর নাম তারাবীহ।</p>
+        <div class="note info" style="margin-top:14px">এটি একটি <strong>শাখাগত (ফুরু'ঈ) মাসআলা</strong> — আকীদার বিষয় নয়। উভয় মতে আমল করা জায়েয এবং এ নিয়ে বিরোধ-বিতর্ক অনুচিত।</div>
+      </div>
+    </div>
+
+    <div class="section-title reveal">
+      <h2>রাকাত ভিজুয়াল</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-header">
+        <div class="card-num">২০</div>
+        <div class="card-title">২০ রাকাত তারাবীহ + ৩ বিতর = ২৩ রাকাত</div>
+      </div>
+      <div class="card-body">
+        <div class="rakaat-visual">
+          <span class="rakaat-dot label">তারাবীহ:</span>
+          <div class="rakaat-dot taraweeh" title="রাকাত ১">১</div><div class="rakaat-dot taraweeh" title="রাকাত ২">২</div><div class="rakaat-dot taraweeh">৩</div><div class="rakaat-dot taraweeh">৪</div><div class="rakaat-dot taraweeh">৫</div><div class="rakaat-dot taraweeh">৬</div><div class="rakaat-dot taraweeh">৭</div><div class="rakaat-dot taraweeh">৮</div><div class="rakaat-dot taraweeh">৯</div><div class="rakaat-dot taraweeh">১০</div><div class="rakaat-dot taraweeh">১১</div><div class="rakaat-dot taraweeh">১২</div><div class="rakaat-dot taraweeh">১৩</div><div class="rakaat-dot taraweeh">১৪</div><div class="rakaat-dot taraweeh">১৫</div><div class="rakaat-dot taraweeh">১৬</div><div class="rakaat-dot taraweeh">১৭</div><div class="rakaat-dot taraweeh">১৮</div><div class="rakaat-dot taraweeh">১৯</div><div class="rakaat-dot taraweeh">২০</div>
+          <span class="rakaat-dot label" style="margin-left:8px">বিতর:</span>
+          <div class="rakaat-dot witr">১</div><div class="rakaat-dot witr">২</div><div class="rakaat-dot witr">৩</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-header">
+        <div class="card-num blue">৮</div>
+        <div class="card-title blue">৮ রাকাত তারাবীহ + ৩ বিতর = ১১ রাকাত</div>
+      </div>
+      <div class="card-body">
+        <div class="rakaat-visual">
+          <span class="rakaat-dot label">তারাবীহ:</span>
+          <div class="rakaat-dot taraweeh">১</div><div class="rakaat-dot taraweeh">২</div><div class="rakaat-dot taraweeh">৩</div><div class="rakaat-dot taraweeh">৪</div><div class="rakaat-dot taraweeh">৫</div><div class="rakaat-dot taraweeh">৬</div><div class="rakaat-dot taraweeh">৭</div><div class="rakaat-dot taraweeh">৮</div>
+          <span class="rakaat-dot label" style="margin-left:8px">বিতর:</span>
+          <div class="rakaat-dot witr">১</div><div class="rakaat-dot witr">২</div><div class="rakaat-dot witr">৩</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title reveal">
+      <h2>চার ইমামের অবস্থান</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="imam-grid reveal">
+      <div class="imam-card">
+        <div class="imam-icon">🕌</div>
+        <div class="imam-name">ইমাম আবু হানীফা (রহ.)</div>
+        <div class="imam-opinion">২০ রাকাত</div>
+      </div>
+      <div class="imam-card">
+        <div class="imam-icon">📚</div>
+        <div class="imam-name">ইমাম মালিক (রহ.)</div>
+        <div class="imam-opinion">২০ রাকাত</div>
+      </div>
+      <div class="imam-card">
+        <div class="imam-icon">✍️</div>
+        <div class="imam-name">ইমাম শাফেঈ (রহ.)</div>
+        <div class="imam-opinion">২০ রাকাত</div>
+      </div>
+      <div class="imam-card">
+        <div class="imam-icon">⚖️</div>
+        <div class="imam-name">ইমাম আহমাদ (রহ.)</div>
+        <div class="imam-opinion">২০ রাকাত</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ======= 20 RAKAAT ======= -->
+  <div class="section" id="twenty">
+
+    <div class="section-title reveal">
+      <h2>২০ রাকাতের দলিলসমূহ</h2>
+      <div class="line"></div>
+    </div>
+
+    <!-- Dalil 1 -->
+    <div class="card reveal">
+      <div class="card-header">
+        <div class="card-num">১</div>
+        <div class="card-title">মুয়াত্তা মালিক — ইয়াযীদ ইবনে রুমান (রহ.)-এর বর্ণনা</div>
+      </div>
+      <div class="card-body">
+        <div class="arabic-text">
+          كَانَ النَّاسُ يَقُومُونَ فِي زَمَانِ عُمَرَ بْنِ الْخَطَّابِ فِي رَمَضَانَ بِثَلَاثٍ وَعِشْرِينَ رَكْعَةً
+        </div>
+        <div class="translation">
+          "ইয়াযীদ ইবনে রুমান বলেন: উমর ইবনুল খাত্তাব (রা.)-এর যুগে মানুষেরা রমজানে ২৩ রাকাত পড়তেন।"
+          <br><small style="color:var(--gold-light)">(২৩ = ২০ তারাবীহ + ৩ বিতর)</small>
+        </div>
+        <div class="reference">📚 মুয়াত্তা মালিক — কিতাবুস সালাত, হাদীস ২৫৩</div>
+      </div>
+    </div>
+
+    <!-- Dalil 2 -->
+    <div class="card reveal">
+      <div class="card-header">
+        <div class="card-num">২</div>
+        <div class="card-title">সুনানুল কুবরা লিলবায়হাকী — সায়িব ইবনে ইয়াযীদ (রা.)-এর সহীহ হাদীস</div>
+      </div>
+      <div class="card-body">
+        <div class="arabic-text">
+          عَنِ السَّائِبِ بْنِ يَزِيدَ قَالَ: كَانُوا يَقُومُونَ عَلَى عَهْدِ عُمَرَ بْنِ الْخَطَّابِ فِي شَهْرِ رَمَضَانَ بِعِشْرِينَ رَكْعَةً
+        </div>
+        <div class="translation">
+          "সায়িব ইবনে ইয়াযীদ (রা.) বলেন: উমর (রা.)-এর যুগে রমজান মাসে লোকেরা ২০ রাকাত পড়তেন।"
+        </div>
+        <div class="reference">📚 সুনানুল কুবরা লিলবায়হাকী, হাদীস ৪২৮৮ | মুসান্নাফ ইবনে আবী শায়বা, হাদীস ৭৬৮৪</div>
+        <div class="note info" style="margin-top:10px">এই হাদীসের সনদ সহীহ — ইমাম নববী, ইমাম আসকালানী ও হাফিজ যায়লাঈ (রহ.) সহ একাধিক মুহাদ্দিস এটি সহীহ বলেছেন।</div>
+      </div>
+    </div>
+
+    <!-- Dalil 3 -->
+    <div class="card reveal">
+      <div class="card-header">
+        <div class="card-num">৩</div>
+        <div class="card-title">ইবনে আব্বাস (রা.)-এর বর্ণনা — নবীজ
